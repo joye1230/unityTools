@@ -1,9 +1,7 @@
 package protocol
 
 import (
-	"github.com/name5566/leaf/gate"
-	"server/protocol"
-	"server/define"
+	"github.com/joye1230/leaf/gate"
 )
 
 type BaseError struct {
@@ -18,9 +16,9 @@ type BaseResponse struct {
 	Uid string `json:"uid"`
 }
 
-func (p *BaseError) SetErrorCode(errorCode int) {
+func (p *BaseError) SetErrorCode(errorCode int,errorMsg string) {
 	p.Status = errorCode
-	p.ErrorMsg = define.ErrorCode[errorCode]
+	p.ErrorMsg = errorMsg
 }
 
 func (p *BaseResponse) Init(echo interface{}, uid string) {
